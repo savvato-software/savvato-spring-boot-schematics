@@ -8,16 +8,16 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import PACKAGE.dto.OBJNAME_CAPITALCAMELCASEDTO;
+import PACKAGE.dto.OBJNAME_CAPITALCAMELCASE()DTO;
 import PACKAGE.entities.OBJNAME_CAPITALCAMELCASE;
 import PACKAGE.entities.User;
-import PACKAGE.repositories.OBJNAME_CAPITALCAMELCASERepository;
+import PACKAGE.repositories.OBJNAME_CAPITALCAMELCASE()Repository;
 
 @Service
-public class OBJNAME_CAPITALCAMELCASEServiceImpl implements OBJNAME_CAPITALCAMELCASEService {
+public class OBJNAME_CAPITALCAMELCASE()ServiceImpl implements OBJNAME_CAPITALCAMELCASEService {
 
 	@Autowired
-	OBJNAME_CAPITALCAMELCASERepository OBJNAME_LOWERCAMELCASERepo;
+	OBJNAME_CAPITALCAMELCASE()Repository OBJNAME_LOWERCAMELCASE()Repo;
 
 	@Autowired
 	UserService userService;
@@ -26,26 +26,26 @@ public class OBJNAME_CAPITALCAMELCASEServiceImpl implements OBJNAME_CAPITALCAMEL
 //	UserRoleMapService userRoleMapService;
 
 
-	public OBJNAME_CAPITALCAMELCASE createNewOBJNAME_CAPITALCAMELCASE(Long userId, String name, String description) {
-		OBJNAME_CAPITALCAMELCASE entity = new OBJNAME_CAPITALCAMELCASE(userId, name, description);
+	public OBJNAME_CAPITALCAMELCASE create(Long userId, String name, String description) {
+		OBJNAME_CAPITALCAMELCASE entity = new OBJNAME_CAPITALCAMELCASE()(userId, name, description);
 
-		OBJNAME_CAPITALCAMELCASE rtn = OBJNAME_LOWERCAMELCASERepo.save(entity);
+		OBJNAME_CAPITALCAMELCASE rtn = OBJNAME_LOWERCAMELCASE()Repo.save(entity);
 
 //		userRoleMapService.addRoleToUser(userId, UserRoleMapService.ROLES.IDE ATOR);
 
 		return rtn;
 	}
 
-	public List<OBJNAME_CAPITALCAMELCASE> getOBJNAME_CAPITALCAMELCASEsByUserId(Long userId) {
-		return OBJNAME_LOWERCAMELCASERepo.findByUserId(userId);
+	public List<OBJNAME_CAPITALCAMELCASE> getByUserId(Long userId) {
+		return OBJNAME_LOWERCAMELCASE()Repo.findByUserId(userId);
 	}
 
-	public List<OBJNAME_CAPITALCAMELCASEDTO> getAll() {
-		Iterable<OBJNAME_CAPITALCAMELCASE> iterable = OBJNAME_LOWERCAMELCASERepo.findAll();
+	public List<OBJNAME_CAPITALCAMELCASE()DTO> getAll() {
+		Iterable<OBJNAME_CAPITALCAMELCASE> iterable = OBJNAME_LOWERCAMELCASE()Repo.findAll();
 
 		Iterator<OBJNAME_CAPITALCAMELCASE> iterator = iterable.iterator();
 
-		List<OBJNAME_CAPITALCAMELCASEDTO> list = new ArrayList<>();
+		List<OBJNAME_CAPITALCAMELCASE()DTO> list = new ArrayList<>();
 
 		while (iterator.hasNext()) {
 			OBJNAME_CAPITALCAMELCASE OBJNAME_LOWERCAMELCASE = iterator.next();
@@ -53,7 +53,7 @@ public class OBJNAME_CAPITALCAMELCASEServiceImpl implements OBJNAME_CAPITALCAMEL
 			// TODO.. some caching of some sort is necessary here.. to keep from reading the database so many times.
 			User u = userService.findById(OBJNAME_LOWERCAMELCASE.getUserId());
 
-			OBJNAME_CAPITALCAMELCASEDTO rtn = new OBJNAME_CAPITALCAMELCASEDTO();
+			OBJNAME_CAPITALCAMELCASE()DTO rtn = new OBJNAME_CAPITALCAMELCASE()DTO();
 			rtn.OBJNAME_LOWERCAMELCASE = OBJNAME_LOWERCAMELCASE;
 			rtn.user = u;
 
@@ -63,8 +63,8 @@ public class OBJNAME_CAPITALCAMELCASEServiceImpl implements OBJNAME_CAPITALCAMEL
 		return list;
 	}
 
-	public OBJNAME_CAPITALCAMELCASE getById(Long OBJNAME_LOWERCAMELCASEId) {
-		Optional<OBJNAME_CAPITALCAMELCASE> opt = OBJNAME_LOWERCAMELCASERepo.findById(OBJNAME_LOWERCAMELCASEId);
+	public OBJNAME_CAPITALCAMELCASE getById(Long id) {
+		Optional<OBJNAME_CAPITALCAMELCASE> opt = OBJNAME_LOWERCAMELCASE()Repo.findById(id);
 
 		if (opt.isPresent())
 			return opt.get();
@@ -72,8 +72,8 @@ public class OBJNAME_CAPITALCAMELCASEServiceImpl implements OBJNAME_CAPITALCAMEL
 			return null;
 	}
 
-	public OBJNAME_CAPITALCAMELCASE update(Long OBJNAME_LOWERCAMELCASEId, String name, String description) {
-		Optional<OBJNAME_CAPITALCAMELCASE> opt = OBJNAME_LOWERCAMELCASERepo.findById(OBJNAME_LOWERCAMELCASEId);
+	public OBJNAME_CAPITALCAMELCASE update(Long id, String name, String description) {
+		Optional<OBJNAME_CAPITALCAMELCASE> opt = OBJNAME_LOWERCAMELCASE()Repo.findById(id);
 
 		if (opt.isPresent()) {
 
@@ -82,13 +82,13 @@ public class OBJNAME_CAPITALCAMELCASEServiceImpl implements OBJNAME_CAPITALCAMEL
 			OBJNAME_LOWERCAMELCASE.setName(name);
 			OBJNAME_LOWERCAMELCASE.setDescription(description);
 
-			return OBJNAME_LOWERCAMELCASERepo.save(OBJNAME_LOWERCAMELCASE);
+			return OBJNAME_LOWERCAMELCASE()Repo.save(OBJNAME_LOWERCAMELCASE);
 		} else {
 			return null;
 		}
 	}
 
-	public OBJNAME_CAPITALCAMELCASE delete(Long OBJNAME_LOWERCAMELCASEId) {
+	public OBJNAME_CAPITALCAMELCASE delete(Long id) {
 
 	    // TODO
 
