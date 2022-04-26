@@ -13,25 +13,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import PACKAGE.controllers.dto.OBJNAME_CAPITALCAMELCASERequest;
-import PACKAGE.dto.OBJNAME_CAPITALCAMELCASEDTO;
+import PACKAGE.controllers.dto.OBJNAME_CAPITALCAMELCASE()Request;
+import PACKAGE.dto.OBJNAME_CAPITALCAMELCASE()DTO;
 import PACKAGE.entities.OBJNAME_CAPITALCAMELCASE;
-import PACKAGE.services.OBJNAME_CAPITALCAMELCASEService;
+import PACKAGE.services.OBJNAME_CAPITALCAMELCASE()Service;
 
 @RestController
-public class OBJNAME_CAPITALCAMELCASEAPIController {
+public class OBJNAME_CAPITALCAMELCASE()APIController {
 
 	@Autowired
-	OBJNAME_CAPITALCAMELCASEService OBJNAME_LOWERCAMELCASEService;
+	OBJNAME_CAPITALCAMELCASE()Service OBJNAME_LOWERCAMELCASE()Service;
 	
-	OBJNAME_CAPITALCAMELCASEAPIController() {
+	OBJNAME_CAPITALCAMELCASE()APIController() {
 			
 	}
 	
 	@RequestMapping(value = { "/api/OBJNAME_LOWERCAMELCASE/create" }, method=RequestMethod.POST)
-	public ResponseEntity<OBJNAME_CAPITALCAMELCASE> createOBJNAME_CAPITALCAMELCASE(@RequestBody @Valid OBJNAME_CAPITALCAMELCASERequest request) {
+	public ResponseEntity<OBJNAME_CAPITALCAMELCASE> create(@RequestBody @Valid OBJNAME_CAPITALCAMELCASE()Request request) {
 		
-		OBJNAME_CAPITALCAMELCASE OBJNAME_LOWERCAMELCASE = OBJNAME_LOWERCAMELCASEService.createNewOBJNAME_CAPITALCAMELCASE(request.userId, request.name, request.description);
+		OBJNAME_CAPITALCAMELCASE OBJNAME_LOWERCAMELCASE = OBJNAME_LOWERCAMELCASE()Service.create(request.userId, request.name, request.description);
 		
 		if (OBJNAME_LOWERCAMELCASE == null) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
@@ -41,32 +41,32 @@ public class OBJNAME_CAPITALCAMELCASEAPIController {
 	}
 	
 	@RequestMapping(value = { "/api/OBJNAME_LOWERCAMELCASE" }, method=RequestMethod.GET)
-	public ResponseEntity<List<OBJNAME_CAPITALCAMELCASEDTO>> getAll() {
+	public ResponseEntity<List<OBJNAME_CAPITALCAMELCASE()DTO>> getAll() {
 		
-		List<OBJNAME_CAPITALCAMELCASEDTO> list = OBJNAME_LOWERCAMELCASEService.getAll();
+		List<OBJNAME_CAPITALCAMELCASE()DTO> list = OBJNAME_LOWERCAMELCASE()Service.getAll();
 		
 		return ResponseEntity.status(HttpStatus.OK).body(list);
 	}
 	
-	@RequestMapping(value = { "/api/user/{userId}/OBJNAME_LOWERCAMELCASEs" }, method=RequestMethod.GET)
+	@RequestMapping(value = { "/api/user/{userId}/OBJNAME_LOWERCAMELCASE()s" }, method=RequestMethod.GET)
 	public ResponseEntity<List<OBJNAME_CAPITALCAMELCASE>> getAllByUserId(@PathVariable Long userId) {
-		
-		List<OBJNAME_CAPITALCAMELCASE> list = OBJNAME_LOWERCAMELCASEService.getOBJNAME_CAPITALCAMELCASEsByUserId(userId);
+
+		List<OBJNAME_CAPITALCAMELCASE> list = OBJNAME_LOWERCAMELCASE()Service.getByUserId(userId);
 		
 		return ResponseEntity.status(HttpStatus.OK).body(list);
 	}
 	
-	@RequestMapping(value = { "/api/OBJNAME_LOWERCAMELCASE/{OBJNAME_LOWERCAMELCASEId}" }, method=RequestMethod.GET)
-	public ResponseEntity<OBJNAME_CAPITALCAMELCASE> getById(@PathVariable Long OBJNAME_LOWERCAMELCASEId) {
+	@RequestMapping(value = { "/api/OBJNAME_LOWERCAMELCASE/{OBJNAME_LOWERCAMELCASE()Id}" }, method=RequestMethod.GET)
+	public ResponseEntity<OBJNAME_CAPITALCAMELCASE> getById(@PathVariable Long OBJNAME_LOWERCAMELCASE()Id) {
 		
-		OBJNAME_CAPITALCAMELCASE OBJNAME_LOWERCAMELCASE = OBJNAME_LOWERCAMELCASEService.getById(OBJNAME_LOWERCAMELCASEId);
+		OBJNAME_CAPITALCAMELCASE OBJNAME_LOWERCAMELCASE = OBJNAME_LOWERCAMELCASE()Service.getById(OBJNAME_LOWERCAMELCASE()Id);
 		
 		return ResponseEntity.status(HttpStatus.OK).body(OBJNAME_LOWERCAMELCASE);
 	}
 	
-	@RequestMapping(value = { "/api/OBJNAME_LOWERCAMELCASE/{OBJNAME_LOWERCAMELCASEId}" }, method=RequestMethod.PUT)
-	public ResponseEntity<OBJNAME_CAPITALCAMELCASE> update(@RequestBody @Valid OBJNAME_CAPITALCAMELCASERequest request) {
-		OBJNAME_CAPITALCAMELCASE OBJNAME_LOWERCAMELCASE = OBJNAME_LOWERCAMELCASEService.update(request.id, request.name, request.description);
+	@RequestMapping(value = { "/api/OBJNAME_LOWERCAMELCASE/{OBJNAME_LOWERCAMELCASE()Id}" }, method=RequestMethod.PUT)
+	public ResponseEntity<OBJNAME_CAPITALCAMELCASE> update(@RequestBody @Valid OBJNAME_CAPITALCAMELCASE()Request request) {
+		OBJNAME_CAPITALCAMELCASE OBJNAME_LOWERCAMELCASE = OBJNAME_LOWERCAMELCASE()Service.update(request.id, request.name, request.description);
 		
 		if (OBJNAME_LOWERCAMELCASE == null) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
@@ -75,9 +75,9 @@ public class OBJNAME_CAPITALCAMELCASEAPIController {
 		}
 	}
 
-	@RequestMapping(value = { "/api/OBJNAME_LOWERCAMELCASE/{OBJNAME_LOWERCAMELCASEId}" }, method=RequestMethod.DELETE)
-	public ResponseEntity<OBJNAME_CAPITALCAMELCASE> update(@RequestBody @Valid OBJNAME_CAPITALCAMELCASERequest request) {
-		OBJNAME_CAPITALCAMELCASE OBJNAME_LOWERCAMELCASE = OBJNAME_LOWERCAMELCASEService.delete(request.id, request.name, request.description);
+	@RequestMapping(value = { "/api/OBJNAME_LOWERCAMELCASE/{OBJNAME_LOWERCAMELCASE()Id}" }, method=RequestMethod.DELETE)
+	public ResponseEntity<OBJNAME_CAPITALCAMELCASE> delete(@RequestBody @Valid OBJNAME_CAPITALCAMELCASE()Request request) {
+		OBJNAME_CAPITALCAMELCASE OBJNAME_LOWERCAMELCASE = OBJNAME_LOWERCAMELCASE()Service.delete(request.id, request.name, request.description);
 		
 		if (OBJNAME_LOWERCAMELCASE == null) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
