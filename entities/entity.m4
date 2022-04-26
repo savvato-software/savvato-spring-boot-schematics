@@ -1,4 +1,4 @@
-package com.savvato.collaborativeentrepreneur.backend.entities;
+package PACKAGE.entities;
 
 import java.util.Calendar;
 
@@ -87,7 +87,7 @@ public class OBJNAME_CAPITALCAMELCASE {
     }
 
     /////
-	public OBJNAME_CAPITALCAMELCASE(Long userId, String name, String description) {
+	public OBJNAME_CAPITALCAMELCASE()(Long userId, String name, String description) {
 		this.userId = userId;
 		this.name = name;
 		this.description = description;
@@ -96,7 +96,7 @@ public class OBJNAME_CAPITALCAMELCASE {
 		setLastUpdated();
 	}
 
-	public OBJNAME_CAPITALCAMELCASE() {
+	public OBJNAME_CAPITALCAMELCASE()() {
 
 	}
 }

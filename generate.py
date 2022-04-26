@@ -50,7 +50,7 @@ if vars(args)["package"] is not None and vars(args)["name"] is not None:
     pathPairs.append(('/repositories/Repository.m4', prepath + '/repositories/' + name_upperCamelCase + "Repository.java"))
     pathPairs.append(('/services/Service.m4', prepath + '/services/' + name_upperCamelCase + "Service.java"))
     pathPairs.append(('/services/ServiceImpl.m4', prepath + '/services/' + name_upperCamelCase + "ServiceImpl.java"))
-    pathPairs.append(('/entities/entity.m4', prepath + '/entities/' + name_upperCamelCase + "Entity.java"))
+    pathPairs.append(('/entities/entity.m4', prepath + '/entities/' + name_upperCamelCase + ".java"))
 
     # TODO also need to update the main changelog.xml file with this new addition.
     pathPairs.append(('/migrations/liquibase.m4', 'src/main/resources/db/migration/changelog-' + mmddyy + '.xml'))
