@@ -5,7 +5,7 @@
   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
-	<changeSet author="savvato-spring-boot-schematics" id="vDATE-1">
+	<changeSet author="savvato-spring-boot-schematics" id="1">
 		<createTable tableName="OBJNAME_LOWERCAMELCASE" catalogName="DATABASENAME" >
 			<column name="id" type="BIGINT(20)" autoIncrement="true">
 				<constraints nullable="false" primaryKey="true"/>
@@ -28,7 +28,7 @@
 		</createTable>
     </changeSet>
 
-  	<changeSet author="savvato-spring-boot-schematics" id="vDATE-2" context="test">
+  	<changeSet author="savvato-spring-boot-schematics" id="2" context="test">
 		<sql dbms="mysql">
 			insert into OBJNAME_LOWERCAMELCASE (id, user_id, name, description, created, last_updated) values (1, 1, "OBJNAME_CAPITALCAMELCASE 1", "OBJNAME_CAPITALCAMELCASE 1 Desc", NOW() - INTERVAL 1 DAY, NOW() - INTERVAL 1 DAY);
 			insert into OBJNAME_LOWERCAMELCASE (id, user_id, name, description, created, last_updated) values (2, 1, "OBJNAME_CAPITALCAMELCASE 2", "OBJNAME_CAPITALCAMELCASE 2 Desc", NOW() - INTERVAL 1 DAY, NOW() - INTERVAL 1 DAY);
