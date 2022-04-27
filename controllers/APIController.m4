@@ -77,7 +77,7 @@ public class OBJNAME_CAPITALCAMELCASE()APIController {
 
 	@RequestMapping(value = { "/api/OBJNAME_LOWERCAMELCASE/{OBJNAME_LOWERCAMELCASE()Id}" }, method=RequestMethod.DELETE)
 	public ResponseEntity<OBJNAME_CAPITALCAMELCASE> delete(@RequestBody @Valid OBJNAME_CAPITALCAMELCASE()Request request) {
-		OBJNAME_CAPITALCAMELCASE OBJNAME_LOWERCAMELCASE = OBJNAME_LOWERCAMELCASE()Service.delete(request.id, request.name, request.description);
+		OBJNAME_CAPITALCAMELCASE OBJNAME_LOWERCAMELCASE = OBJNAME_LOWERCAMELCASE()Service.delete(request.id);
 		
 		if (OBJNAME_LOWERCAMELCASE == null) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);

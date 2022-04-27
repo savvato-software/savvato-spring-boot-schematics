@@ -1,6 +1,6 @@
 package PACKAGE.controllers.dto;
 
-public class OBJNAME_CAPITALCAMELCASERequest {
+public class OBJNAME_CAPITALCAMELCASE()Request {
 
     public Long id;
     public Long userId;

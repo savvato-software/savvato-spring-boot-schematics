@@ -47,6 +47,7 @@ if vars(args)["package"] is not None and vars(args)["name"] is not None:
     pathPairs = []
     pathPairs.append(('/controllers/APIController.m4', prepath + '/controllers/' + name_upperCamelCase + "APIController.java"))
     pathPairs.append(('/controllers/dto/Request.m4', prepath + '/controllers/dto/' + name_upperCamelCase + "Request.java"))
+    pathPairs.append(('/dto/DTO.m4', prepath + '/dto/' + name_upperCamelCase + "DTO.java"))
     pathPairs.append(('/repositories/Repository.m4', prepath + '/repositories/' + name_upperCamelCase + "Repository.java"))
     pathPairs.append(('/services/Service.m4', prepath + '/services/' + name_upperCamelCase + "Service.java"))
     pathPairs.append(('/services/ServiceImpl.m4', prepath + '/services/' + name_upperCamelCase + "ServiceImpl.java"))

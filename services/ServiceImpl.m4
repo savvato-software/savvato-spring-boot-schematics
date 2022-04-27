@@ -14,7 +14,7 @@ import PACKAGE.entities.User;
 import PACKAGE.repositories.OBJNAME_CAPITALCAMELCASE()Repository;
 
 @Service
-public class OBJNAME_CAPITALCAMELCASE()ServiceImpl implements OBJNAME_CAPITALCAMELCASEService {
+public class OBJNAME_CAPITALCAMELCASE()ServiceImpl implements OBJNAME_CAPITALCAMELCASE()Service {
 
 	@Autowired
 	OBJNAME_CAPITALCAMELCASE()Repository OBJNAME_LOWERCAMELCASE()Repo;
@@ -51,7 +51,8 @@ public class OBJNAME_CAPITALCAMELCASE()ServiceImpl implements OBJNAME_CAPITALCAM
 			OBJNAME_CAPITALCAMELCASE OBJNAME_LOWERCAMELCASE = iterator.next();
 
 			// TODO.. some caching of some sort is necessary here.. to keep from reading the database so many times.
-			User u = userService.findById(OBJNAME_LOWERCAMELCASE.getUserId());
+			Optional<User> opt = userService.findById(OBJNAME_LOWERCAMELCASE.getUserId());
+			User u = opt.get();
 
 			OBJNAME_CAPITALCAMELCASE()DTO rtn = new OBJNAME_CAPITALCAMELCASE()DTO();
 			rtn.OBJNAME_LOWERCAMELCASE = OBJNAME_LOWERCAMELCASE;
@@ -91,6 +92,6 @@ public class OBJNAME_CAPITALCAMELCASE()ServiceImpl implements OBJNAME_CAPITALCAM
 	public OBJNAME_CAPITALCAMELCASE delete(Long id) {
 
 	    // TODO
-
+        return null;
 	}
 }
