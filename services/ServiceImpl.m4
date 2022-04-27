@@ -56,7 +56,8 @@ public class OBJNAME_CAPITALCAMELCASE()ServiceImpl implements OBJNAME_CAPITALCAM
 
 			OBJNAME_CAPITALCAMELCASE()DTO rtn = new OBJNAME_CAPITALCAMELCASE()DTO();
 			rtn.OBJNAME_LOWERCAMELCASE = OBJNAME_LOWERCAMELCASE;
-			rtn.user = u;
+			rtn.userId = u.getId();
+			rtn.userName = u.getName();
 
 			list.add(rtn);
 		}

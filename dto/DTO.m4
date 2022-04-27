@@ -6,6 +6,7 @@ import PACKAGE.entities.User;
 public class OBJNAME_CAPITALCAMELCASE()DTO {
 
 	public OBJNAME_CAPITALCAMELCASE OBJNAME_LOWERCAMELCASE;
-	public User user;
+	public Long userId;
+	public String userName;
 
 }
