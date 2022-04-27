@@ -1,5 +1,3 @@
-define(`DATE`, syscmd(`date +%m%d%y`))
-
 <?xml version="1.0" encoding="UTF-8"?>
 <databaseChangeLog
   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
@@ -7,13 +5,13 @@ define(`DATE`, syscmd(`date +%m%d%y`))
   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
-	<changeSet id="vDATE-1">
-		<createTable tableName="OBJNAME_LOWERCAMELCASE" catalogName="DATABASE_NAME" >
+	<changeSet author="savvato-spring-boot-schematics" id="vDATE-1">
+		<createTable tableName="OBJNAME_LOWERCAMELCASE" catalogName="DATABASENAME" >
 			<column name="id" type="BIGINT(20)" autoIncrement="true">
 				<constraints nullable="false" primaryKey="true"/>
 			</column>
 			<column name="user_id" type="BIGINT(20)">
-                <constraints nullable="false" foreignKeyName="OBJNAME_LOWERCAMELCASE_fk1" references="user(id)"/>
+                <constraints nullable="false" foreignKeyName="OBJNAME_LOWERCAMELCASE()_fk1" references="user(id)"/>
 			</column>
 			<column name="name" type="VARCHAR(128)">
 				<constraints nullable="false"/>
@@ -30,7 +28,7 @@ define(`DATE`, syscmd(`date +%m%d%y`))
 		</createTable>
     </changeSet>
 
-  	<changeSet id="vDATE-2" context="test">
+  	<changeSet author="savvato-spring-boot-schematics" id="vDATE-2" context="test">
 		<sql dbms="mysql">
 			insert into OBJNAME_LOWERCAMELCASE (id, user_id, name, description, created, last_updated) values (1, 1, "OBJNAME_CAPITALCAMELCASE 1", "OBJNAME_CAPITALCAMELCASE 1 Desc", NOW() - INTERVAL 1 DAY, NOW() - INTERVAL 1 DAY);
 			insert into OBJNAME_LOWERCAMELCASE (id, user_id, name, description, created, last_updated) values (2, 1, "OBJNAME_CAPITALCAMELCASE 2", "OBJNAME_CAPITALCAMELCASE 2 Desc", NOW() - INTERVAL 1 DAY, NOW() - INTERVAL 1 DAY);
@@ -39,3 +37,4 @@ define(`DATE`, syscmd(`date +%m%d%y`))
 	</changeSet>
 
 </databaseChangeLog>
+

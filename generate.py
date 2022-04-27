@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
 import argparse
+import datetime
+import subprocess
 
 from stringutils import StringUtils;
 from m4nicator import m4nicator;
@@ -27,19 +29,20 @@ from output_writer import outputWriter;
 parser = argparse.ArgumentParser(conflict_handler='resolve')
 parser.add_argument("--package")
 parser.add_argument("--name")
+parser.add_argument("--databasename")
 
 args = parser.parse_args()
 
-if vars(args)["package"] is not None and vars(args)["name"] is not None:
+if vars(args)["package"] is not None and vars(args)["name"] is not None and vars(args)["databasename"] is not None:
 
     package = vars(args)["package"]
     name = vars(args)["name"]
+    databaseName = vars(args)["databasename"]
+
     name_lowerCamelCase = StringUtils.getLowerCamelCase(name)
     name_upperCamelCase = StringUtils.getCapitalCamelCase(name)
 
-
-    mmddyy = "042622" # TODO
-
+    mmddyy = datetime.datetime.now().strftime('%y%m%d%H%M%S');
 
     prepath = "src/main/java/" + package.replace(".","/")
 
@@ -58,10 +61,15 @@ if vars(args)["package"] is not None and vars(args)["name"] is not None:
 
     for i in pathPairs:
         m4Path = i[0]
-        output = m4nicator.doIt(m4Path, package, name_lowerCamelCase, name_upperCamelCase)
+        output = m4nicator.doIt(m4Path, package, name_lowerCamelCase, name_upperCamelCase, databaseName)
 
         outputWriter.doIt(output.stdout.decode("utf-8"), i[1])
 
+    command = "sed -i '/^<\/databaseChangeLog>/i \t<include file=\"changelog-" + mmddyy + ".xml\"    relativeToChangelogFile=\"true\"\/>' src/main/resources/db/migration/changelog-master.xml"
+
+    print(command);
+    output = subprocess.run(command, capture_output=True, shell=True)
+
 else:
-    print("\npackage and name parameters are required.\n")
+    print("\npackage, name, and databasename parameters are all required.\n")
 
