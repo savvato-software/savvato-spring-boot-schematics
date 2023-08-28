@@ -56,10 +56,10 @@ public class OBJNAME_CAPITALCAMELCASE()APIController {
 		return ResponseEntity.status(HttpStatus.OK).body(list);
 	}
 	
-	@RequestMapping(value = { "/api/OBJNAME_LOWERCAMELCASE/{OBJNAME_LOWERCAMELCASE()Id}" }, method=RequestMethod.GET)
-	public ResponseEntity<OBJNAME_CAPITALCAMELCASE()DTO> getById(@PathVariable Long OBJNAME_LOWERCAMELCASE()Id) {
+	@RequestMapping(value = { "/api/OBJNAME_LOWERCAMELCASE" }, method=RequestMethod.GET)
+	public ResponseEntity<OBJNAME_CAPITALCAMELCASE()DTO> getById(@RequestParam Long id) {
 		
-		OBJNAME_CAPITALCAMELCASE()DTO OBJNAME_LOWERCAMELCASE = OBJNAME_LOWERCAMELCASE()Service.getById(OBJNAME_LOWERCAMELCASE()Id);
+		OBJNAME_CAPITALCAMELCASE()DTO OBJNAME_LOWERCAMELCASE = OBJNAME_LOWERCAMELCASE()Service.getById(id);
 		
 		return ResponseEntity.status(HttpStatus.OK).body(OBJNAME_LOWERCAMELCASE);
 	}
