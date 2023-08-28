@@ -26,7 +26,7 @@ public class OBJNAME_CAPITALCAMELCASE()ServiceImpl implements OBJNAME_CAPITALCAM
 //	UserRoleMapService userRoleMapService;
 
 
-	public OBJNAME_CAPITALCAMELCASE create(Long userId, String name, String description) {
+	public OBJNAME_CAPITALCAMELCASE()DTO create(Long userId, String name, String description) {
 		OBJNAME_CAPITALCAMELCASE entity = new OBJNAME_CAPITALCAMELCASE()(userId, name, description);
 
 		OBJNAME_CAPITALCAMELCASE rtn = OBJNAME_LOWERCAMELCASE()Repo.save(entity);
@@ -65,11 +65,16 @@ public class OBJNAME_CAPITALCAMELCASE()ServiceImpl implements OBJNAME_CAPITALCAM
 		return list;
 	}
 
-	public OBJNAME_CAPITALCAMELCASE getById(Long id) {
+	public OBJNAME_CAPITALCAMELCASE()DTO getById(Long id) {
 		Optional<OBJNAME_CAPITALCAMELCASE> opt = OBJNAME_LOWERCAMELCASE()Repo.findById(id);
 
 		if (opt.isPresent())
-			return opt.get();
+		    OBJNAME_CAPITALCAMELCASE()DTO rtn = OBJNAME_CAPITALCAMELCASE()DTO().builder()
+
+		        // TODO set return obj properties with opt.get()
+
+		    .build();
+			return rtn;
 		else
 			return null;
 	}
