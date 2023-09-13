@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import PACKAGE.controllers.dto.OBJNAME_CAPITALCAMELCASE()Request;
@@ -29,9 +30,9 @@ public class OBJNAME_CAPITALCAMELCASE()APIController {
 	}
 	
 	@RequestMapping(value = { "/api/OBJNAME_LOWERCAMELCASE/create" }, method=RequestMethod.POST)
-	public ResponseEntity<OBJNAME_CAPITALCAMELCASE> create(@RequestBody @Valid OBJNAME_CAPITALCAMELCASE()Request request) {
+	public ResponseEntity<OBJNAME_CAPITALCAMELCASE()DTO> create(@RequestBody @Valid OBJNAME_CAPITALCAMELCASE()Request request) {
 		
-		OBJNAME_CAPITALCAMELCASE OBJNAME_LOWERCAMELCASE = OBJNAME_LOWERCAMELCASE()Service.create(request.userId, request.name, request.description);
+		OBJNAME_CAPITALCAMELCASE()DTO OBJNAME_LOWERCAMELCASE = OBJNAME_LOWERCAMELCASE()Service.create(request.userId, request.name, request.description);
 		
 		if (OBJNAME_LOWERCAMELCASE == null) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
@@ -40,7 +41,7 @@ public class OBJNAME_CAPITALCAMELCASE()APIController {
 		}
 	}
 	
-	@RequestMapping(value = { "/api/OBJNAME_LOWERCAMELCASE" }, method=RequestMethod.GET)
+	@RequestMapping(value = { "/api/OBJNAME_LOWERCAMELCASE/all" }, method=RequestMethod.GET)
 	public ResponseEntity<List<OBJNAME_CAPITALCAMELCASE()DTO>> getAll() {
 		
 		List<OBJNAME_CAPITALCAMELCASE()DTO> list = OBJNAME_LOWERCAMELCASE()Service.getAll();

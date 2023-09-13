@@ -22,16 +22,18 @@ public class OBJNAME_CAPITALCAMELCASE()ServiceImpl implements OBJNAME_CAPITALCAM
 	@Autowired
 	UserService userService;
 
-//	@Autowired
-//	UserRoleMapService userRoleMapService;
-
-
 	public OBJNAME_CAPITALCAMELCASE()DTO create(Long userId, String name, String description) {
 		OBJNAME_CAPITALCAMELCASE entity = new OBJNAME_CAPITALCAMELCASE()(userId, name, description);
 
-		OBJNAME_CAPITALCAMELCASE rtn = OBJNAME_LOWERCAMELCASE()Repo.save(entity);
+		OBJNAME_CAPITALCAMELCASE obj = OBJNAME_LOWERCAMELCASE()Repo.save(entity);
 
-//		userRoleMapService.addRoleToUser(userId, UserRoleMapService.ROLES.IDE ATOR);
+        OBJNAME_CAPITALCAMELCASE()DTO rtn = OBJNAME_CAPITALCAMELCASE()DTO.builder()
+            .name(obj.getName())
+            .description(obj.getDescription())
+            .userId(obj.getUserId())
+            .created(obj.getCreated())
+            .lastUpdated(obj.getLastUpdated())
+            .build();
 
 		return rtn;
 	}
@@ -54,10 +56,14 @@ public class OBJNAME_CAPITALCAMELCASE()ServiceImpl implements OBJNAME_CAPITALCAM
 			Optional<User> opt = userService.findById(OBJNAME_LOWERCAMELCASE.getUserId());
 			User u = opt.get();
 
-			OBJNAME_CAPITALCAMELCASE()DTO rtn = new OBJNAME_CAPITALCAMELCASE()DTO();
-			rtn.OBJNAME_LOWERCAMELCASE = OBJNAME_LOWERCAMELCASE;
-			rtn.userId = u.getId();
-			rtn.userName = u.getName();
+			OBJNAME_CAPITALCAMELCASE()DTO rtn = OBJNAME_CAPITALCAMELCASE()DTO.builder()
+			.name(OBJNAME_LOWERCAMELCASE.getName())
+			.description(OBJNAME_LOWERCAMELCASE.getDescription())
+			.userId(OBJNAME_LOWERCAMELCASE.getUserId())
+			.userName(userService.findById(OBJNAME_LOWERCAMELCASE.getUserId()).get().getName())
+			.created(OBJNAME_LOWERCAMELCASE.getCreated().time())
+			.lastUpdated(OBJNAME_LOWERCAMELCASE.getLastUpdated().time())
+                .build();
 
 			list.add(rtn);
 		}
@@ -68,15 +74,22 @@ public class OBJNAME_CAPITALCAMELCASE()ServiceImpl implements OBJNAME_CAPITALCAM
 	public OBJNAME_CAPITALCAMELCASE()DTO getById(Long id) {
 		Optional<OBJNAME_CAPITALCAMELCASE> opt = OBJNAME_LOWERCAMELCASE()Repo.findById(id);
 
-		if (opt.isPresent())
-		    OBJNAME_CAPITALCAMELCASE()DTO rtn = OBJNAME_CAPITALCAMELCASE()DTO().builder()
+		if (opt.isPresent()) {
+		    OBJNAME_CAPITALCAMELCASE OBJNAME_LOWERCAMELCASE = opt.get();
 
-		        // TODO set return obj properties with opt.get()
+			OBJNAME_CAPITALCAMELCASE()DTO rtn = OBJNAME_CAPITALCAMELCASE()DTO.builder()
+			.name(OBJNAME_LOWERCAMELCASE.getName())
+			.description(OBJNAME_LOWERCAMELCASE.getDescription())
+			.userId(OBJNAME_LOWERCAMELCASE.getUserId())
+			.userName(userService.findById(OBJNAME_LOWERCAMELCASE.getUserId()).get().getName())
+			.created(OBJNAME_LOWERCAMELCASE.getCreated().time())
+			.lastUpdated(OBJNAME_LOWERCAMELCASE.getLastUpdated().time())
+                .build();
 
-		    .build();
-			return rtn;
-		else
-			return null;
+		    return rtn;
+		} else {
+		    return null;
+		}
 	}
 
 	public OBJNAME_CAPITALCAMELCASE update(Long id, String name, String description) {
