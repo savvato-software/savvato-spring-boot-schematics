@@ -1,0 +1,4 @@
+
+
+From your project directory:
+ ~/src/savvato-spring-boot-schematics/generate.py --package=com.savvato.dmpj.backend --name=JobDescription --databasename=dmpj_db
