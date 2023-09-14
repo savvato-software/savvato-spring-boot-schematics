@@ -32,8 +32,9 @@ public class OBJNAME_CAPITALCAMELCASE()ServiceImpl implements OBJNAME_CAPITALCAM
             .name(obj.getName())
             .description(obj.getDescription())
             .userId(obj.getUserId())
-            .created(obj.getCreated())
-            .lastUpdated(obj.getLastUpdated())
+		    .userName(userService.findById(userId).get().getName())
+            .created(obj.getCreated().getTime() + "")
+            .lastUpdated(obj.getLastUpdated().getTime() + "")
             .build();
 
 		return rtn;
