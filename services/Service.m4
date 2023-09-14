@@ -12,7 +12,7 @@ public interface OBJNAME_CAPITALCAMELCASE()Service {
 
 	public OBJNAME_CAPITALCAMELCASE()DTO create(Long userId, String name, String description);
 
-	public List<OBJNAME_CAPITALCAMELCASE> getByUserId(Long userId);
+	public List<OBJNAME_CAPITALCAMELCASE()DTO> getByUserId(Long userId);
 
 	public OBJNAME_CAPITALCAMELCASE update(Long id, String name, String description);
 

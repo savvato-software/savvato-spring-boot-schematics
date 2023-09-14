@@ -50,9 +50,9 @@ public class OBJNAME_CAPITALCAMELCASE()APIController {
 	}
 	
 	@RequestMapping(value = { "/api/user/{userId}/OBJNAME_LOWERCAMELCASE()s" }, method=RequestMethod.GET)
-	public ResponseEntity<List<OBJNAME_CAPITALCAMELCASE>> getAllByUserId(@PathVariable Long userId) {
+	public ResponseEntity<List<OBJNAME_CAPITALCAMELCASE()DTO>> getAllByUserId(@PathVariable Long userId) {
 
-		List<OBJNAME_CAPITALCAMELCASE> list = OBJNAME_LOWERCAMELCASE()Service.getByUserId(userId);
+		List<OBJNAME_CAPITALCAMELCASE()DTO> list = OBJNAME_LOWERCAMELCASE()Service.getByUserId(userId);
 		
 		return ResponseEntity.status(HttpStatus.OK).body(list);
 	}

@@ -28,6 +28,7 @@ public class OBJNAME_CAPITALCAMELCASE()ServiceImpl implements OBJNAME_CAPITALCAM
 		OBJNAME_CAPITALCAMELCASE obj = OBJNAME_LOWERCAMELCASE()Repo.save(entity);
 
         OBJNAME_CAPITALCAMELCASE()DTO rtn = OBJNAME_CAPITALCAMELCASE()DTO.builder()
+            .id(obj.getId())
             .name(obj.getName())
             .description(obj.getDescription())
             .userId(obj.getUserId())
@@ -38,8 +39,26 @@ public class OBJNAME_CAPITALCAMELCASE()ServiceImpl implements OBJNAME_CAPITALCAM
 		return rtn;
 	}
 
-	public List<OBJNAME_CAPITALCAMELCASE> getByUserId(Long userId) {
-		return OBJNAME_LOWERCAMELCASE()Repo.findByUserId(userId);
+	public List<OBJNAME_CAPITALCAMELCASE()DTO> getByUserId(Long userId) {
+		List<OBJNAME_CAPITALCAMELCASE> list = OBJNAME_LOWERCAMELCASE()Repo.findByUserId(userId);
+
+		List<OBJNAME_CAPITALCAMELCASE()DTO> rtn = new ArrayList<>();
+
+		for (OBJNAME_CAPITALCAMELCASE OBJNAME_LOWERCAMELCASE : list) {
+            OBJNAME_CAPITALCAMELCASE()DTO dto = OBJNAME_CAPITALCAMELCASE()DTO.builder()
+            .id(OBJNAME_LOWERCAMELCASE.getId())
+            .name(OBJNAME_LOWERCAMELCASE.getName())
+            .description(OBJNAME_LOWERCAMELCASE.getDescription())
+            .userId(OBJNAME_LOWERCAMELCASE.getUserId())
+            .userName(userService.findById(OBJNAME_LOWERCAMELCASE.getUserId()).get().getName())
+            .created(OBJNAME_LOWERCAMELCASE.getCreated().time())
+            .lastUpdated(OBJNAME_LOWERCAMELCASE.getLastUpdated().time())
+                .build();
+
+            rtn.add(dto);
+        }
+
+        return rtn;
 	}
 
 	public List<OBJNAME_CAPITALCAMELCASE()DTO> getAll() {
@@ -57,6 +76,7 @@ public class OBJNAME_CAPITALCAMELCASE()ServiceImpl implements OBJNAME_CAPITALCAM
 			User u = opt.get();
 
 			OBJNAME_CAPITALCAMELCASE()DTO rtn = OBJNAME_CAPITALCAMELCASE()DTO.builder()
+            .id(OBJNAME_LOWERCAMELCASE.getId())
 			.name(OBJNAME_LOWERCAMELCASE.getName())
 			.description(OBJNAME_LOWERCAMELCASE.getDescription())
 			.userId(OBJNAME_LOWERCAMELCASE.getUserId())
