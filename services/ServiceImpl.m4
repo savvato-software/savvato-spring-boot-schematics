@@ -33,8 +33,8 @@ public class OBJNAME_CAPITALCAMELCASE()ServiceImpl implements OBJNAME_CAPITALCAM
             .description(obj.getDescription())
             .userId(obj.getUserId())
 		    .userName(userService.findById(userId).get().getName())
-            .created(obj.getCreated().getTime() + "")
-            .lastUpdated(obj.getLastUpdated().getTime() + "")
+            .created(obj.getCreated().getTime())
+            .lastUpdated(obj.getLastUpdated().getTime())
             .build();
 
 		return rtn;
@@ -52,8 +52,8 @@ public class OBJNAME_CAPITALCAMELCASE()ServiceImpl implements OBJNAME_CAPITALCAM
             .description(OBJNAME_LOWERCAMELCASE.getDescription())
             .userId(OBJNAME_LOWERCAMELCASE.getUserId())
             .userName(userService.findById(OBJNAME_LOWERCAMELCASE.getUserId()).get().getName())
-            .created(OBJNAME_LOWERCAMELCASE.getCreated().time())
-            .lastUpdated(OBJNAME_LOWERCAMELCASE.getLastUpdated().time())
+            .created(OBJNAME_LOWERCAMELCASE.getCreated().getTime())
+            .lastUpdated(OBJNAME_LOWERCAMELCASE.getLastUpdated().getTime())
                 .build();
 
             rtn.add(dto);
@@ -82,8 +82,8 @@ public class OBJNAME_CAPITALCAMELCASE()ServiceImpl implements OBJNAME_CAPITALCAM
 			.description(OBJNAME_LOWERCAMELCASE.getDescription())
 			.userId(OBJNAME_LOWERCAMELCASE.getUserId())
 			.userName(userService.findById(OBJNAME_LOWERCAMELCASE.getUserId()).get().getName())
-			.created(OBJNAME_LOWERCAMELCASE.getCreated().time())
-			.lastUpdated(OBJNAME_LOWERCAMELCASE.getLastUpdated().time())
+			.created(OBJNAME_LOWERCAMELCASE.getCreated().getTime())
+			.lastUpdated(OBJNAME_LOWERCAMELCASE.getLastUpdated().getTime())
                 .build();
 
 			list.add(rtn);
@@ -103,8 +103,8 @@ public class OBJNAME_CAPITALCAMELCASE()ServiceImpl implements OBJNAME_CAPITALCAM
 			.description(OBJNAME_LOWERCAMELCASE.getDescription())
 			.userId(OBJNAME_LOWERCAMELCASE.getUserId())
 			.userName(userService.findById(OBJNAME_LOWERCAMELCASE.getUserId()).get().getName())
-			.created(OBJNAME_LOWERCAMELCASE.getCreated().time())
-			.lastUpdated(OBJNAME_LOWERCAMELCASE.getLastUpdated().time())
+			.created(OBJNAME_LOWERCAMELCASE.getCreated().getTime())
+			.lastUpdated(OBJNAME_LOWERCAMELCASE.getLastUpdated().getTime())
                 .build();
 
 		    return rtn;
