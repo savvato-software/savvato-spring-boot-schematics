@@ -65,7 +65,7 @@ public class OBJNAME_CAPITALCAMELCASE()APIController {
 		return ResponseEntity.status(HttpStatus.OK).body(OBJNAME_LOWERCAMELCASE);
 	}
 	
-	@RequestMapping(value = { "/api/OBJNAME_LOWERCAMELCASE/{OBJNAME_LOWERCAMELCASE()Id}" }, method=RequestMethod.PUT)
+	@RequestMapping(value = { "/api/OBJNAME_LOWERCAMELCASE" }, method=RequestMethod.PUT)
 	public ResponseEntity<OBJNAME_CAPITALCAMELCASE> update(@RequestBody @Valid OBJNAME_CAPITALCAMELCASE()Request request) {
 		OBJNAME_CAPITALCAMELCASE OBJNAME_LOWERCAMELCASE = OBJNAME_LOWERCAMELCASE()Service.update(request.id, request.name, request.description);
 		
@@ -76,7 +76,7 @@ public class OBJNAME_CAPITALCAMELCASE()APIController {
 		}
 	}
 
-	@RequestMapping(value = { "/api/OBJNAME_LOWERCAMELCASE/{OBJNAME_LOWERCAMELCASE()Id}" }, method=RequestMethod.DELETE)
+	@RequestMapping(value = { "/api/OBJNAME_LOWERCAMELCASE" }, method=RequestMethod.DELETE)
 	public ResponseEntity<OBJNAME_CAPITALCAMELCASE> delete(@RequestBody @Valid OBJNAME_CAPITALCAMELCASE()Request request) {
 		OBJNAME_CAPITALCAMELCASE OBJNAME_LOWERCAMELCASE = OBJNAME_LOWERCAMELCASE()Service.delete(request.id);
 		
